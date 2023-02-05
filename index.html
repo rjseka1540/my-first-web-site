@@ -11,7 +11,46 @@
 <body>
     <h1><a href="index.html">WEB</a></h1>
     <div id="grid">
+        <!-- <input type="button" value="night" onclick="
+        document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('body').style.color='white';
+        " />
+        <input type="button" value="day" onclick="
+        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.color='black';
+        " /> -->
 
+        
+        <input id="bt" type="button" value="day" onclick="
+        let datetime = new Date();
+        var target = document.querySelector('body');
+        // if(datetime.getHours() > 18)
+        if(this.value==='day')
+        {
+            target.style.backgroundColor='black';
+            target.style.color='white';
+            target.dataset.mode='night';
+            this.value='night'
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            for( ; i< alist.length;i++){
+                alist[i].style.color = 'powderblue';
+            }
+            
+        }
+        else{
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            target.dataset.mode='day';
+            this.value='day'
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            for( ; i< alist.length;i++){
+                alist[i].style.color = 'blue';
+            }
+        }
+        
+        " />
         <div id="list">
             <ol>
                 <li><a href="1.html">HTML</a></li>
@@ -26,6 +65,10 @@
                 CSS CSS
             </p>
         </div>
+
+        <script>
+            
+        </script>
     </div>
 
 </body>
