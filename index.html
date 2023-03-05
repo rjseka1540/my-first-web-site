@@ -5,6 +5,53 @@
     <title>WEB index</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        var Links = {
+                LinkedsetColor: function (color) {
+                    var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    for (; i < alist.length; i++) {
+                        alist[i].style.color = color;
+                    }
+                }
+            }
+
+        var Body = {
+            bodysetColor: function (color) {
+                document.querySelector('body').style.color = color;
+
+            },
+            backgroundsetColor: function (color) {
+                document.querySelector('body').style.backgroundColor = color;
+
+            }
+        }
+
+
+
+        function daychangehandler(self) {
+            let datetime = new Date();
+            var target = document.querySelector('body');
+            // if(datetime.getHours() > 18)
+            if (self.value === 'day') {
+                Body.backgroundsetColor('black');
+                Body.bodysetColor('white');
+                target.dataset.mode = 'night';
+                self.value = 'night'
+
+                Links.LinkedsetColor('powderblue');
+
+            }
+            else {
+                Body.backgroundsetColor('white');
+                Body.bodysetColor('black');
+                target.dataset.mode = 'day';
+                self.value = 'day'
+                Links.LinkedsetColor('blue');
+            }
+        }
+    </script>
 </head>
 
 
@@ -20,35 +67,9 @@
         document.querySelector('body').style.color='black';
         " /> -->
 
-        
+
         <input id="bt" type="button" value="day" onclick="
-        let datetime = new Date();
-        var target = document.querySelector('body');
-        // if(datetime.getHours() > 18)
-        if(this.value==='day')
-        {
-            target.style.backgroundColor='black';
-            target.style.color='white';
-            target.dataset.mode='night';
-            this.value='night'
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            for( ; i< alist.length;i++){
-                alist[i].style.color = 'powderblue';
-            }
-            
-        }
-        else{
-            target.style.backgroundColor='white';
-            target.style.color='black';
-            target.dataset.mode='day';
-            this.value='day'
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            for( ; i< alist.length;i++){
-                alist[i].style.color = 'blue';
-            }
-        }
+        daychangehandler(this);
         
         " />
         <div id="list">
@@ -67,7 +88,7 @@
         </div>
 
         <script>
-            
+
         </script>
     </div>
 
